@@ -6,6 +6,7 @@ use sel4::{
     init_thread::slot,
 };
 use slot_manager::LeafSlot;
+use sel4_config::sel4_cfg;
 
 pub struct ObjectAllocator {
     ut: Untyped,
@@ -135,6 +136,7 @@ impl ObjectAllocator {
 
     /// 申请一个页表 [PT]
     #[inline]
+    #[sel4_cfg(any(ARCH_AARCH64, ARCH_AARCH32))]
     pub fn alloc_pt(&mut self) -> PT {
         self.allocate_and_retyped_fixed_sized::<cap_type::PT>()
     }

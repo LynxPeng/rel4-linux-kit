@@ -19,23 +19,36 @@ members = [
 ]
 
 [workspace.package]
-edition = "2024"
+edition = "2021"
 
 # 对于一些公共性的依赖，统一在这里指定版本号
 # 在使用的地方加上 xxx = { workspace = true }
 [workspace.dependencies]
 # rust-sel4 相关依赖
-sel4 = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd", default-features = false }
-sel4-ctors-dtors = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
-sel4-dlmalloc = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
-sel4-root-task = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
-sel4-elf-header = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
-sel4-initialize-tls = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
-sel4-logging = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
-sel4-panicking = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
-sel4-panicking-env = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
-sel4-runtime-common = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
-sel4-async-single-threaded-executor = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+# sel4 = { path = "/root/rel4test/projects/rust-root-task-demo/rust-sel4/crates/sel4", default-features = false }
+# sel4-ctors-dtors = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+# sel4-dlmalloc = { path = "/root/rel4test/projects/rust-root-task-demo/rust-sel4/crates/sel4-dlmalloc"}
+# sel4-root-task = { path = "/root/rel4test/projects/rust-root-task-demo/rust-sel4/crates/sel4-root-task" }
+# sel4-elf-header = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+# sel4-initialize-tls = {git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+# sel4-logging = { path = "/root/rel4test/projects/rust-root-task-demo/rust-sel4/crates/sel4-logging" }
+# sel4-panicking = { path = "/root/rel4test/projects/rust-root-task-demo/rust-sel4/crates/sel4-panicking" }
+# sel4-panicking-env = { path = "/root/rel4test/projects/rust-root-task-demo/rust-sel4/crates/sel4-panicking/env" }
+# sel4-runtime-common = { path = "/root/rel4test/projects/rust-root-task-demo/rust-sel4/crates/sel4-runtime-common" }
+# sel4-async-single-threaded-executor = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+
+ sel4 = { git = "https://github.com/seL4/rust-sel4", default-features = false }
+ sel4-ctors-dtors = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+ sel4-config = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+ sel4-dlmalloc = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+ sel4-root-task = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+ sel4-elf-header = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+ sel4-initialize-tls = {git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+ sel4-logging = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+ sel4-panicking = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+ sel4-panicking-env = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+ sel4-runtime-common = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
+ sel4-async-single-threaded-executor = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
 
 sel4-stack = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }
 sel4-sync = { git = "https://github.com/seL4/rust-sel4", rev = "5b9ebfd" }

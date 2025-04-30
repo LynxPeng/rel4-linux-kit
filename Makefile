@@ -1,9 +1,10 @@
 BUILD_DIR := target
-TARGET := aarch64-sel4
+TARGET := riscv64imac-sel4
+TARGET_RISCV := riscv64imac-sel4
 QEMU_LOG ?= n
 
 # sel4 installation directory
-SEL4_PREFIX :=  $(realpath .)/.env/seL4
+SEL4_PREFIX := /root/sel4temp/seL4/install
 loader_artifacts_dir := $(SEL4_PREFIX)/bin
 loader := $(loader_artifacts_dir)/sel4-kernel-loader
 loader_cli := sel4-kernel-loader-add-payload
@@ -29,9 +30,17 @@ CARGO_BUILD_ARGS := --artifact-dir $(BUILD_DIR) \
 	--target $(TARGET) \
 	--release
 
+CARGO_BUILD_ARGS_RISCV := --target-dir $(BUILD_DIR) \
+	--target $(TARGET_RISCV) \
+	--release
+
 build: 
 	cargo build $(CARGO_BUILD_ARGS) --workspace --exclude $(app_crate)
 	cargo build $(CARGO_BUILD_ARGS) -p $(app_crate)
+
+build_riscv:
+	# cargo build $(CARGO_BUILD_ARGS_RISCV) --workspace --exclude $(app_crate)
+	cargo build $(CARGO_BUILD_ARGS_RISCV)
 
 image := $(BUILD_DIR)/image.elf
 
